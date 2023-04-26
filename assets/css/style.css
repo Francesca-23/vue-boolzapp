@@ -1,6 +1,6 @@
 /* general container */
 .big-container{
-    background: linear-gradient(0deg, rgba(245,243,243,1) 0%, rgba(19,121,9,1) 100%);
+    background: linear-gradient(0deg, rgb(219, 219, 210) 80%, rgb(0, 150, 136) 80%);
     height: 100vh;
     display: flex;
     align-items: center;
@@ -68,8 +68,8 @@ nav{
 }
 
 #contatti{
-    height: 65%;
-    overflow: auto;
+    height: 69%;
+    overflow-y: scroll;
 }
 
 .contatto:hover{
@@ -78,8 +78,15 @@ nav{
 }
 
 /* box-right */
+
 #right-box{
     background-image: url('../img/mine.jpg');
+    position: relative;
+}
+
+#messages-box{
+    height: 80%;
+    overflow-y: scroll;
 }
 
 .message{
@@ -94,6 +101,22 @@ nav{
 
 .received-message{
     background-color: white;
+}
+
+#new-text{
+    background-color: #eaeaea;
+    height: 10%;
+}
+
+#new-text .form-control{
+    height: 70%;
+    width: 80%;
+}
+
+#new-text i{
+    padding: 0 2rem;
+    font-size: 1.3rem;
+    color: gray;
 }
 
 

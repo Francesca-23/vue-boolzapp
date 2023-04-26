@@ -102,7 +102,7 @@
                     </nav>
 
                     <!-- Messages -->
-                    <div class="pt-5 px-5 position-relative">
+                    <div id="messages-box" class="pt-5 px-5 position-relative">
 
                         <div v-for="(element, index) in activeMessage" v-bind:class="element.status == 'sent' ? 'sent-message' : 'received-message' " class="message rounded-3">
                             <div class="position-relative p-2 rounded-3 mx-3">
@@ -111,6 +111,13 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <!-- scrivi un messaggio -->
+                    <div id="new-text" class="d-flex align-items-center justify-content-between">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone"></i>
                     </div>
 
                 </div>
