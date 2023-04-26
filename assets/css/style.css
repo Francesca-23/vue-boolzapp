@@ -13,7 +13,13 @@
     background-color: white;
 }
 
+nav{
+    height: 3.5rem;
+    background-color: #eaeaea;
+}
+
 /* avatars and icons */
+
 .avatar{
     height: 2.8rem;   
 }
@@ -35,10 +41,6 @@
 }
 
 /* box-left */
-#nav-left{
-    height: 3.5rem;
-    background-color: #eaeaea;
-}
 
 #avviso-notifiche{
     background-color: #8edafc;
@@ -61,7 +63,7 @@
     font-size: 0.8rem;
 }
 
-.fa-magnifying-glass{
+.search .fa-magnifying-glass{
     padding: 0 1rem;
 }
 
@@ -70,7 +72,28 @@
     overflow: auto;
 }
 
+.contatto:hover{
+    cursor: pointer;
+    background-color: #eaeaea;
+}
+
 /* box-right */
 #right-box{
     background-image: url('../img/mine.jpg');
 }
+
+.message{
+    width: 38%;
+    margin: 1rem 0;
+}
+
+.sent-message{
+    background-color: #d5f9ba; 
+    margin-left: 60%;
+}
+
+.received-message{
+    background-color: white;
+}
+
+

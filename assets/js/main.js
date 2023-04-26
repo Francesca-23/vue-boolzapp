@@ -166,11 +166,23 @@ createApp({
                     }
                 ],
             }
-        ]
+        ],
+
+        activeAvatar: 0,
+        activeName: 0,
+        activeMessage: 0
 
     }
+    
   },
+
   methods: {
+
+    active(i){
+        this.activeAvatar = this.contacts[i].avatar
+        this.activeName = this.contacts[i].name
+        this.activeMessage = this.contacts[i].messages
+    }
 
   }
 }).mount('#app')

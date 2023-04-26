@@ -24,7 +24,7 @@
                 <div id="left-box" class="col-4 h-100">
 
                     <!-- nav-left -->
-                    <nav id="nav-left" class="d-flex justify-content-between align-items-center">
+                    <nav class="d-flex justify-content-between align-items-center">
                         <div class="avatar px-2">
                             <img src="./assets/img/avatar_io.jpg" alt="avatar-io">
                             <span class="px-1">Sofia</span>
@@ -41,14 +41,14 @@
                         <div id="bell" class="d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
-                        <div class="mx-1 texts">
+                        <div class="mx-2 texts">
                             <p class="mb-0"><strong>Ricevi notifiche di nuovi messaggi</strong></p>
                             <a href="#" class="text-body">Attiva notifiche desktop</a>
                         </div>
                     </div>
 
                     <!-- searchbar -->
-                    <div class="bg-body-tertiary p-2">
+                    <div class="bg-body-tertiary p-2 search">
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text bg-white rounded-0">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -60,7 +60,7 @@
                     <!-- contatti -->
                     <div id="contatti">
 
-                        <div v-for="(element, index) in contacts" class="d-flex justify-content-between p-2 border-bottom">
+                        <div v-for="(element, index) in contacts" class="d-flex justify-content-between p-2 border-bottom contatto" @click="active(index)">
                             <div>
                                 <div class="avatar px-2 d-flex">
                                     <img v-bind:src="element.avatar" alt="avatar-1">
@@ -81,7 +81,39 @@
 
                 <!-- box-right -->
 
-                <div id="right-box" class="col-8"></div>
+                <div id="right-box" class="col-8">
+
+                    <!-- nav-right -->
+                    <nav class="d-flex justify-content-between align-items-center border-start">
+                        <div class="avatar px-2 d-flex">
+                            <img v-bind:src="contacts[0].avatar" alt="avatar" v-if="activeAvatar == 0">
+                            <img v-bind:src="activeAvatar" alt="avatar" v-if="activeAvatar != 0">
+                            <div class="px-2">
+                                <span v-if="activeName == 0">{{contacts[0].name}}</span>
+                                <span v-if="activeName != 0">{{activeName}}</span>
+                                <p class="small-text">Ultimo accesso oggi alle 12:00</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </nav>
+
+                    <!-- Messages -->
+                    <div class="pt-5 px-5 position-relative">
+
+                        <div v-for="(element, index) in activeMessage" v-bind:class="element.status == 'sent' ? 'sent-message' : 'received-message' " class="message rounded-3">
+                            <div class="position-relative p-2 rounded-3 mx-3">
+                                <p class="mb-1">{{element.message}} </p>
+                                <div class="small-text position-absolute bottom-0 end-0">12:00</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
