@@ -1,0 +1,76 @@
+/* general container */
+.big-container{
+    background: linear-gradient(0deg, rgba(245,243,243,1) 0%, rgba(19,121,9,1) 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box{
+    width: 80%;
+    height: 90%;
+    background-color: white;
+}
+
+/* avatars and icons */
+.avatar{
+    height: 2.8rem;   
+}
+
+.avatar img{
+    height: 100%;
+    border-radius: 50%;
+}
+
+.fa-solid{
+    padding-right: 0.8rem;
+    color: #b1b1b1;
+    font-size: 1.2rem;
+}
+
+.small-text{
+    font-size: 0.7rem;
+    color: #b1b1b1;
+}
+
+/* box-left */
+#nav-left{
+    height: 3.5rem;
+    background-color: #eaeaea;
+}
+
+#avviso-notifiche{
+    background-color: #8edafc;
+}
+
+#bell{
+    height: 3rem;
+    width: 3rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+.fa-bell-slash{
+    color: #8edafc;
+    padding-right: 0;
+}
+
+#avviso-notifiche .texts{
+    font-size: 0.8rem;
+}
+
+.fa-magnifying-glass{
+    padding: 0 1rem;
+}
+
+#contatti{
+    height: 65%;
+    overflow: auto;
+}
+
+/* box-right */
+#right-box{
+    background-image: url('../img/mine.jpg');
+}

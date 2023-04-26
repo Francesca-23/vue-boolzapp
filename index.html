@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-whatsapp</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="big-container">
+
+            <div id="box" class="d-flex">
+
+                <!-- box-left -->
+
+                <div id="left-box" class="col-4 h-100">
+
+                    <!-- nav-left -->
+                    <nav id="nav-left" class="d-flex justify-content-between align-items-center">
+                        <div class="avatar px-2">
+                            <img src="./assets/img/avatar_io.jpg" alt="avatar-io">
+                            <span class="px-1">Sofia</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </nav>
+
+                    <!-- avviso notifiche -->
+                    <div id="avviso-notifiche" class="d-flex py-2">
+                        <div id="bell" class="d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="mx-1 texts">
+                            <p class="mb-0"><strong>Ricevi notifiche di nuovi messaggi</strong></p>
+                            <a href="#" class="text-body">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+
+                    <!-- searchbar -->
+                    <div class="bg-body-tertiary p-2">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text bg-white rounded-0">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat">
+                          </div>
+                    </div>
+
+                    <!-- contatti -->
+                    <div id="contatti">
+
+                        <div v-for="(element, index) in contacts" class="d-flex justify-content-between p-2 border-bottom">
+                            <div>
+                                <div class="avatar px-2 d-flex">
+                                    <img v-bind:src="element.avatar" alt="avatar-1">
+                                    <div class="px-2">
+                                        <span>{{element.name}}</span>
+                                        <p class="small-text">Ultimo messaggio inviato</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="small-text">12:00</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- box-right -->
+
+                <div id="right-box" class="col-8"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
