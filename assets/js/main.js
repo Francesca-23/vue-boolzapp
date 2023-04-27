@@ -170,7 +170,10 @@ createApp({
 
         activeAvatar: 0,
         activeName: 0,
-        activeMessage: 0
+        activeMessage: 0,
+        testoInserito: '',
+
+        data: new Date(),
 
     }
     
@@ -182,6 +185,27 @@ createApp({
         this.activeAvatar = this.contacts[i].avatar
         this.activeName = this.contacts[i].name
         this.activeMessage = this.contacts[i].messages
+    },
+
+    //funzione per inviare un nuovo messaggio
+    newMessage(){
+        this.activeMessage.push(
+           {
+            date: `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`,
+            message: this.testoInserito,
+            status: 'sent'
+           })
+
+        this.testoInserito = ''
+
+        setTimeout(() => {
+            this.activeMessage.push(
+                {
+                date: `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`,
+                message: 'ok',
+                status: 'received'
+                })
+        }, 1000)
     }
 
   }
