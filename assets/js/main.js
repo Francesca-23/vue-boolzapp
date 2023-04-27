@@ -177,15 +177,10 @@ createApp({
 
         data: new Date(),
 
-        selectedContacts: []
-
     }
     
   },
 
-created(){
-    this.selectPerson()
-  },
 
   methods: {
 
@@ -221,20 +216,14 @@ created(){
 
         if(this.searchPerson != ''){
 
-            for(let i = 0; i < this.contacts.length; i++){
-                let nomi = this.contacts[i].name
-                let nomiDivisi = nomi.split('') 
+            contacts.forEach((element) => {
                 
-                console.log(nomiDivisi)
-
-                this.contacts.filter((element, index) => {
-                    
-                    if(!nomiDivisi.includes(this.searchPerson) && nomiDivisi.join('') == element.name){
-                        element.avatar.add('none')
-                    }
-                })
-            }
-            
+                if(element.name.includes(this.searchPerson)){
+                    return element.visible = true
+                }else{
+                    return element.visible = false
+                }
+            })     
         }
     }
 

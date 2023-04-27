@@ -53,14 +53,14 @@
                             <span class="input-group-text bg-white rounded-0">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" v-model="searchPerson" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" @mouseover="selectPerson">
+                            <input type="text" v-model="searchPerson" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" @keyup="selectPerson">
                           </div>
                     </div>
 
                     <!-- contatti -->
                     <div id="contatti">
 
-                        <div v-for="(element, index) in contacts" class="d-flex justify-content-between p-2 border-bottom contatto" @click="active(index)">
+                        <div v-for="(element, index) in contacts" v-bind:class="visible == true ? '' : 'none' " class="d-flex justify-content-between p-2 border-bottom contatto" @click="active(index)">
                             <div>
                                 <div class="avatar px-2 d-flex">
                                     <img v-bind:src="element.avatar" alt="avatar-1">
