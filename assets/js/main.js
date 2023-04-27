@@ -173,10 +173,18 @@ createApp({
         activeMessage: 0,
         testoInserito: '',
 
+        searchPerson: '',
+
         data: new Date(),
+
+        selectedContacts: []
 
     }
     
+  },
+
+created(){
+    this.selectPerson()
   },
 
   methods: {
@@ -206,6 +214,28 @@ createApp({
                 status: 'received'
                 })
         }, 1000)
+    },
+
+    
+    selectPerson(){
+
+        if(this.searchPerson != ''){
+
+            for(let i = 0; i < this.contacts.length; i++){
+                let nomi = this.contacts[i].name
+                let nomiDivisi = nomi.split('') 
+                
+                console.log(nomiDivisi)
+
+                this.contacts.filter((element, index) => {
+                    
+                    if(!nomiDivisi.includes(this.searchPerson) && nomiDivisi.join('') == element.name){
+                        element.avatar.add('none')
+                    }
+                })
+            }
+            
+        }
     }
 
   }

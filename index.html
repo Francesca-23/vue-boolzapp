@@ -53,7 +53,7 @@
                             <span class="input-group-text bg-white rounded-0">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" v-model="searchPerson" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" @mouseover="selectPerson">
                           </div>
                     </div>
 
