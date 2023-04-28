@@ -194,7 +194,7 @@ createApp({
     newMessage(){
         this.activeMessage.push(
            {
-            date: `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`,
+            date: this.generatoreDate(),
             message: this.testoInserito,
             status: 'sent'
            })
@@ -204,11 +204,21 @@ createApp({
         setTimeout(() => {
             this.activeMessage.push(
                 {
-                date: `${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`,
+                date: this.generatoreDate(),
                 message: 'ok',
                 status: 'received'
                 })
         }, 1000)
+    },
+
+    generatoreDate(){
+        return `${this.data.getDay()}:${this.data.getMonth()}:${this.data.getFullYear()} ${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`
+    },
+
+    //selezione dell'orario per i messaggi
+    orarioMess(i){
+        let time = this.activeMessage[i].date.split(' ')
+        return time[1]
     },
 
     //funzione per selezionare i contatti dal nome
@@ -227,6 +237,21 @@ createApp({
     //eliminazione messaggio al click
     eliminaMessaggio(i){
         this.activeMessage.splice(i, 1)
+    },
+
+    //funzione per tener traccia dell'ultimo messaggio
+    ultimoMessaggio(i){
+        let last = this.contacts[i].messages.slice(-1).pop().message
+        return last
+        
+    },
+
+    //funzione per tener traccia dell'orario dell'ultimo messaggio
+    ultimoOrario(i){
+        let last = this.contacts[i].messages.slice(-1).pop().date
+
+        let orario = last.split(' ')
+        return orario[1]
     }
 
   }
