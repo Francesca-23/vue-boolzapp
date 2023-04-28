@@ -53,14 +53,14 @@
                             <span class="input-group-text bg-white rounded-0">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" v-model="searchPerson" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" @keyup="selectPerson">
+                            <input type="text" v-model="searchPerson" class="form-control rounded-0" placeholder="Cerca o inizia una nuova chat" @keyup="selectPerson()">
                           </div>
                     </div>
 
                     <!-- contatti -->
                     <div id="contatti">
 
-                        <div v-for="(element, index) in contacts" v-bind:class="visible == true ? '' : 'none' " class="d-flex justify-content-between p-2 border-bottom contatto" @click="active(index)">
+                        <div v-for="(element, index) in contacts" v-bind:class="element.visible == true ? 'd-flex' : 'none' " class="justify-content-between p-2 border-bottom contatto" @click="active(index)">
                             <div>
                                 <div class="avatar px-2 d-flex">
                                     <img v-bind:src="element.avatar" alt="avatar-1">
@@ -105,8 +105,19 @@
                     <div id="messages-box" class="pt-5 px-5 position-relative">
 
                         <div v-for="(element, index) in activeMessage" v-bind:class="element.status == 'sent' ? 'sent-message' : 'received-message' " class="message rounded-3">
-                            <div class="position-relative p-2 rounded-3 mx-3">
+                            <div class="allMessage p-2 rounded-3 mx-3">
                                 <p class="mb-2">{{element.message}} </p>
+                    
+                                <div class="dropdown delete-mess">
+                                    <div data-bs-toggle="dropdown">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#">Informazioni</a></li>
+                                      <li><a class="dropdown-item" @click="eliminaMessaggio(index)" href="#">Elimina messaggio</a></li>
+                                    </ul>
+                                </div>
+
                                 <div class="small-text position-absolute bottom-0 end-0">{{element.date}}</div>
                             </div>
                         </div>

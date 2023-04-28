@@ -119,6 +119,21 @@ nav{
     color: gray;
 }
 
+.allMessage{
+    position: relative;
+}
+
+.delete-mess{
+    position: absolute!important;
+    right: -1.4rem;
+    top: 0.7rem;
+    cursor: pointer;
+}
+
+.delete-mess i{
+    font-size: 0.8rem;
+}
+
 
 .none{
     display: none;

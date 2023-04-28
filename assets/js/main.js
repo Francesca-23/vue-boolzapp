@@ -211,20 +211,22 @@ createApp({
         }, 1000)
     },
 
-    
-    selectPerson(){
+    //funzione per selezionare i contatti dal nome
+    selectPerson(){ 
 
-        if(this.searchPerson != ''){
-
-            contacts.forEach((element) => {
+        this.contacts.forEach((element) => {
                 
-                if(element.name.includes(this.searchPerson)){
-                    return element.visible = true
-                }else{
-                    return element.visible = false
-                }
-            })     
-        }
+            if(element.name.includes(this.searchPerson.toUpperCase()) || element.name.includes(this.searchPerson)){
+                return element.visible = true
+            }else{
+                return element.visible = false
+            }
+        })     
+    },
+
+    //eliminazione messaggio al click
+    eliminaMessaggio(i){
+        this.activeMessage.splice(i, 1)
     }
 
   }
