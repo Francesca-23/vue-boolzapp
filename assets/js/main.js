@@ -192,27 +192,59 @@ createApp({
 
     //funzione per inviare un nuovo messaggio
     newMessage(){
-        this.activeMessage.push(
-           {
-            date: this.generatoreDate(),
-            message: this.testoInserito,
-            status: 'sent'
-           })
+        
+        if(this.activeMessage != 0){
 
-        this.testoInserito = ''
-
-        setTimeout(() => {
             this.activeMessage.push(
-                {
+               {
                 date: this.generatoreDate(),
-                message: 'ok',
-                status: 'received'
+                message: this.testoInserito,
+                status: 'sent'
+               })
+    
+            this.testoInserito = ''
+    
+            setTimeout(() => {
+                this.activeMessage.push(
+                    {
+                    date: this.generatoreDate(),
+                    message: 'ok',
+                    status: 'received'
+                    })
+            }, 1000)
+
+        }else{
+            
+            this.contacts[0].messages.push(
+                {
+                 date: this.generatoreDate(),
+                 message: this.testoInserito,
+                 status: 'sent'
                 })
-        }, 1000)
+     
+             this.testoInserito = ''
+     
+             setTimeout(() => {
+                 this.contacts[0].messages.push(
+                     {
+                     date: this.generatoreDate(),
+                     message: 'ok',
+                     status: 'received'
+                     })
+             }, 1000)
+        }
+
+
     },
 
     generatoreDate(){
         return `${this.data.getDay()}:${this.data.getMonth()}:${this.data.getFullYear()} ${this.data.getHours()}:${this.data.getMinutes()}:${this.data.getSeconds()}`
+    },
+
+    //selezione dell'orario per i messaggi della prima chat
+    orarioFisso(i){
+        let time = this.contacts[0].messages[i].date.split(' ')
+        return time[1]
     },
 
     //selezione dell'orario per i messaggi
@@ -236,7 +268,11 @@ createApp({
 
     //eliminazione messaggio al click
     eliminaMessaggio(i){
-        this.activeMessage.splice(i, 1)
+        if(this.activeMessage != 0){
+            this.activeMessage.splice(i, 1)
+        }else{
+            this.contacts[0].messages.splice(i, 1)
+        }
     },
 
     //funzione per tener traccia dell'ultimo messaggio

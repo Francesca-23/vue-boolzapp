@@ -104,7 +104,26 @@
                     <!-- Messages -->
                     <div id="messages-box" class="pt-5 px-5 position-relative">
 
-                        <div v-for="(element, index) in activeMessage" v-bind:class="element.status == 'sent' ? 'sent-message' : 'received-message' " class="message rounded-3">
+                        <div v-if="activeMessage == 0" v-for="(element, index) in contacts[0].messages" v-bind:class="element.status == 'sent' ? 'sent-message' : 'received-message' " class="message rounded-3">
+                            <div class="allMessage p-2 rounded-3 mx-3">
+                                <p class="mb-2">{{element.message}} </p>
+                    
+                                <div class="dropdown delete-mess">
+                                    <div data-bs-toggle="dropdown">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#">Informazioni</a></li>
+                                      <li><a class="dropdown-item" @click="eliminaMessaggio(index)" href="#">Elimina messaggio</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="small-text position-absolute bottom-0 end-0">{{orarioFisso(index)}} </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div v-if="activeMessage != 0" v-for="(element, index) in activeMessage" v-bind:class="element.status == 'sent' ? 'sent-message' : 'received-message' " class="message rounded-3">
                             <div class="allMessage p-2 rounded-3 mx-3">
                                 <p class="mb-2">{{element.message}} </p>
                     
